@@ -1,7 +1,6 @@
 {
   "name": "task-manager",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "mongodb": "^4.13.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nirav3998/Task_App_MongoDB.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nirav3998/Task_App_MongoDB/issues"
+  },
+  "homepage": "https://github.com/nirav3998/Task_App_MongoDB#readme",
+  "description": ""
 }
