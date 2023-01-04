@@ -18,17 +18,14 @@ mongoClient.connect(clientUrl,{useNewUrlParser:true},(error,client)=>{
     }
 
     const db = client.db(dataBaseName)
-    
-    db.collection('tasks').findOne({_id:new ObjectId("63b183a03699df72bcde708d")},(error,user)=>{
 
-        if(error){
-            return console.log('Unable to retrive user!!')
+    db.collection('tasks').updateMany({status:true},{
+        $set : {
+            status:false
         }
-
-        console.log(user)
-    })
-
-    db.collection('tasks').find({status:false}).toArray((error,tasks)=>{
-            console.log(tasks)
+    }).then((result)=>{
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
     })
 })
