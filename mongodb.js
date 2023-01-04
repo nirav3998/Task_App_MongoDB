@@ -2,6 +2,7 @@
 
 const mongodb = require('mongodb')
 const mongoClient = mongodb.MongoClient
+const ObjectId = mongodb.ObjectId
 
 //Local server and database configuration
 
@@ -17,8 +18,17 @@ mongoClient.connect(clientUrl,{useNewUrlParser:true},(error,client)=>{
     }
 
     const db = client.db(dataBaseName)
-    db.collection('users').insertOne({
-        name : 'Nirav',
-        age : 27
+    
+    db.collection('tasks').findOne({_id:new ObjectId("63b183a03699df72bcde708d")},(error,user)=>{
+
+        if(error){
+            return console.log('Unable to retrive user!!')
+        }
+
+        console.log(user)
+    })
+
+    db.collection('tasks').find({status:false}).toArray((error,tasks)=>{
+            console.log(tasks)
     })
 })
